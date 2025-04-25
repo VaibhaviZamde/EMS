@@ -9,13 +9,13 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const url = "https://ems-backend-uc0w.onrender.com"
   useEffect(() => {
     const verifyUser = async () => {
       try {
         const token = localStorage.getItem("token");
         if (token) {
-          const response = await axios.get('http://localhost:5000/api/auth/verify', {
+          const response = await axios.get(url+'/api/auth/verify', {
             headers: { Authorization: `Bearer ${token}` },
           });
 
