@@ -8,6 +8,7 @@ const DepartmentList = () => {
   const [departments, setDepartments] = useState([]);            // all fetched
   const [filteredDepartments, setFilteredDepartments] = useState([]); // what we show
   const [loading, setLoading] = useState(false);
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   // delete handler passed into columns factory
   const handleDelete = (id) => {
@@ -21,8 +22,7 @@ const DepartmentList = () => {
     const fetchAll = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get(
-          "http://localhost:5000/api/department",
+        const { data } = await axios.get(url+"/api/department",
           { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
         );
         if (data.success) {
