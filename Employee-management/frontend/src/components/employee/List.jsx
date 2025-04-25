@@ -8,6 +8,7 @@ const List = () => {
   const [employees, setEmployees] = useState([]);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
   const [loading, setLoading] = useState(false);
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   // Filter employees by name or ID
   const filterEmployees = (e) => {
@@ -22,7 +23,7 @@ const List = () => {
     const fetchEmployees = async () => {
       setLoading(true);
       try {
-        const { data } = await axios.get("http://localhost:5000/api/employee", {
+        const { data } = await axios.get(url+"/api/employee", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
