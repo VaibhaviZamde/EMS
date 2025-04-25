@@ -20,11 +20,12 @@ const Add = () => {
   const [departments, setDepartments] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate()
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   // Fetch departments on mount
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/department", {
+      .get(url+"/api/department", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {
