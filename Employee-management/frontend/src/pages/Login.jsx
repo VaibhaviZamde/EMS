@@ -10,13 +10,14 @@ const Login = () => {
   const [error, setError] = useState(null);
   const { login } = useAuth();
   const navigate = useNavigate();
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null); // Clear previous errors
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
+      const response = await axios.post(url+"/api/auth/login", {
         email,
         password
       });
