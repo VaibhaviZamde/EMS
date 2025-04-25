@@ -7,7 +7,7 @@ const AddDepartment = () => {
     dep_name: '',
     description: ''
   });
-
+  const url = "https://ems-backend-uc0w.onrender.com"
   const navigate  = useNavigate()
 
   const handleChange = (e) => {
@@ -18,7 +18,7 @@ const AddDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/department/add', department, {
+      const response = await axios.post(url+'/api/department/add', department, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
