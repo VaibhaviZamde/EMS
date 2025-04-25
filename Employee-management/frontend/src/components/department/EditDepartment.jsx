@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const EditDepartment = () => {
   const { id } = useParams();
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   // Initialize with an object so you never render null fields
   const [department, setDepartment] = useState({
@@ -19,8 +20,7 @@ const EditDepartment = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/department/${id}`,
+        const response = await axios.get(  url+`/api/department/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
