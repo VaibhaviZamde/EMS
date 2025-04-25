@@ -33,10 +33,12 @@ export const columns = [
 
 // Fetch department list
 export const fetchAll = async (setLoading) => {
+  const url = "https://ems-backend-uc0w.onrender.com";
+
   let departments = [];
   try {
     setLoading(true);
-    const { data } = await axios.get("http://localhost:5000/api/department", {
+    const { data } = await axios.get(url+"/api/department", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
     if (data.success) {
