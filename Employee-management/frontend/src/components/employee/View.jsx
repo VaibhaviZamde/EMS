@@ -7,13 +7,14 @@ const View = () => {
   const [employee, setEmployee] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   useEffect(() => {
     const fetchEmployee = async () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(`http://localhost:5000/api/employee/${id}`, {
+        const response = await axios.get(url+`/api/employee/${id}`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
