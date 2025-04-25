@@ -5,12 +5,12 @@ import axios from "axios";
 // still OK to export a plain component
 export const DepartmentButtons = ({ id, onDelete }) => {
   const navigate = useNavigate();
+  const url = "https://ems-backend-uc0w.onrender.com";
 
   const handleDelete = async () => {
     if (!window.confirm("Do you really want to delete this?")) return;
     try {
-      const { data } = await axios.delete(
-        `http://localhost:5000/api/department/${id}`,
+      const { data } = await axios.delete(url+`/api/department/${id}`,
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       if (data.success) onDelete(id);
